@@ -2,16 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Quote extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-}
 
 class App extends React.Component {
   constructor(props) {
     super(props)
   }
+
+  // Fetch quotes if component loads.
+
   render() {
     return (
       <div id="quote-box">
