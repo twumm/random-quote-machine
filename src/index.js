@@ -1,25 +1,55 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import quotes from './quotesData'
 
 
-class App extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      quotes: []
+    }
   }
-
-  // Fetch quotes if component loads.
 
   render() {
     return (
+      <QuoteBox />
+    )
+  }
+}
+
+class QuoteBox extends React.Component {
+  render() {
+    return (
       <div id="quote-box">
-        <h4 id="text"></h4>
-        <h6 id="author"></h6>
-        <button class="btn btn-success" id="new-quote" type="submit">New Quote</button>
+        <Quotes />
+      </div>
+    )
+  }
+}
+
+class Quotes extends React.Component {
+  render() {
+    return (
+      <div>
+        <h4 id="text">dhjhkj</h4>
+        <h6 id="author">rtdf</h6>
+        <button className="btn btn-success" id="new-quote" type="submit">New Quote</button>
+        <ShareQuote />
+      </div>
+    )
+  }
+}
+
+class ShareQuote extends React.Component {
+  render() {
+    return (
+      <div>
         <a id="tweet-quote"></a>
       </div>
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
