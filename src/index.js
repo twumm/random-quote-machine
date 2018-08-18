@@ -3,20 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import quotesData from './quotesData'
 
-const quotesDataLength = quotesData.quotes.length + 1
-// let quote = quotesData.quotes[Math.floor(Math.random() * quotesDataLength)]
-// console.log(Math.random() * Math.floor(quotesDataLength))
-// console.log(Math.floor(Math.random() * quotesDataLength))
-// console.log(quote)
+
+const quotesDataLength = quotesData.quotes.length
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      quotes: []
-    }
-  }
-
   render() {
     return (
       <QuoteBox />
@@ -27,8 +17,12 @@ class Main extends React.Component {
 class QuoteBox extends React.Component {
   render() {
     return (
-      <div id="quote-box">
-        <Quotes />
+      <div className="container">
+        <div className="row d-flex align-items-center justify-content-center">
+          <div id="quote-box">
+            <Quotes />
+          </div>
+        </div>
       </div>
     )
   }
@@ -55,7 +49,7 @@ class Quotes extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style= {{padding: 20}}>
         <h4
           id="text"
         >
@@ -66,28 +60,41 @@ class Quotes extends React.Component {
         >
           {this.state.quoteAuthor}
         </h6>
-        <button
-          className="btn btn-success"
-          onClick={this.getQuote}
-          id="new-quote"
-          type="submit"
-        >
+        <div className="row d-flex align-items-baseline justify-content-between">
+          <button
+            className="btn btn-success"
+            onClick={this.getQuote}
+            id="new-quote"
+            type="submit"
+          >
           New Quote
-        </button>
-        <ShareQuote />
+          </button>
+          <a 
+            className="twitter-share-button"
+            id="tweet-quote"
+            href={`https://twitter.com/intent/tweet?text=${this.state.quoteText} - ${this.state.quoteAuthor}`}>
+            Tweet
+          </a>
+        </div>
+        
       </div>
     )
   }
 }
 
-class ShareQuote extends React.Component {
+/*class ShareQuote extends React.Component {
   render() {
     return (
       <div>
-        <a id="tweet-quote"></a>
+        <a 
+          className="twitter-share-button"
+          id="tweet-quote"
+          href={`https://twitter.com/intent/tweet?text=${Quotes.getQuote}`}>
+          Tweet
+        </a>
       </div>
     )
   }
-}
+}*/
 
 ReactDOM.render(<Main />, document.getElementById('root'));
