@@ -5,11 +5,11 @@ body {
 }
 
 #quote-box {
-  border-radius:3px;
-  position:relative;
-  /*margin:8% auto auto auto;*/
-  width:450px;
-  padding:40px 50px;
-  display:table;
-  background-color:#fff;
+  border: 1px solid white;
+  border-radius: 3px;
+  width: 80%;
+  height: auto;
+  margin:100px auto auto auto;
+  /*justify-content: center*/
+  /*padding:40px 50px;*/
 }
